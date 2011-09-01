@@ -4,5 +4,5 @@ description: I'm not telling yet!
 generator: http://dinnerbone.com/minecraft/tools/pluginator/
 main: me.olloth.plugins.portcullis.Portcullis
 name: Portcullis
-startup: startup
+load: startup
 version: 0.0.1
