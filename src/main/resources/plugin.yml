@@ -6,3 +6,4 @@ main: me.olloth.plugins.portcullis.Portcullis
 name: Portcullis
 load: startup
 version: 0.0.1
+depend: [Spout]

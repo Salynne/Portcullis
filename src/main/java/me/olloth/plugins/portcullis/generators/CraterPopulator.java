@@ -12,7 +12,7 @@ public class CraterPopulator extends BlockPopulator {
     private static final int CRATER_CHANCE = 60; // Out of 100
     private static final int MIN_CRATER_SIZE = 3;
     private static final int SMALL_CRATER_SIZE = 10;
-    private static final int BIG_CRATER_SIZE = 30;
+    private static final int BIG_CRATER_SIZE = 26;
     private static final int BIG_CRATER_CHANCE = 10; // Out of 100
 
     public void populate(World world, Random random, Chunk source) {
@@ -30,11 +30,11 @@ public class CraterPopulator extends BlockPopulator {
             }
 
             for (int x = -radius; x <= radius; x++) {
-                for (int y = -radius; y <= radius; y++) {
+                for (int y = -radius/2; y <= radius; y++) {
                     for (int z = -radius; z <= radius; z++) {
                         Vector position = center.clone().add(new Vector(x, y, z));
 
-                        if (center.distance(position) <= radius/2 + 0.5) {
+                        if (center.distance(position) <= radius + 0.5) {
                             world.getBlockAt(position.toLocation(world)).setType(Material.AIR);
                         }
                     }
