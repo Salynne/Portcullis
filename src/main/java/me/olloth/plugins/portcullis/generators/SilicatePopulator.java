@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.generator.BlockPopulator;
+import org.getspout.spoutapi.SpoutManager;
 
 public class SilicatePopulator extends BlockPopulator {
 
@@ -27,14 +28,17 @@ public class SilicatePopulator extends BlockPopulator {
 				int centerY = world.getHighestBlockYAt(centerX, centerZ) - 1;
 				Block sourceBlock = world.getBlockAt(centerX, centerY, centerZ);
 
-				if (sourceBlock.getType() == Material.COBBLESTONE) {
+				if (sourceBlock.getType() == Material.STONE) {
 					height = 2 + random.nextInt(3);
 					sourceBlock.setType(Material.GLASS);
+					
 					for (int y = 1; y <= height; y++) {
 						if (random.nextInt(4) == 3) {
-							world.getBlockAt(centerX, centerY + y, centerZ).setType(Material.MOSSY_COBBLESTONE);
+							world.getBlockAt(centerX, centerY + y, centerZ).setType(Material.GLASS);
+							SpoutManager.getItemManager().overrideBlock(centerX, centerY + y, centerZ, 445, 0);
 						} else {
 							world.getBlockAt(centerX, centerY + y, centerZ).setType(Material.GLASS);
+							SpoutManager.getItemManager().overrideBlock(centerX, centerY + y, centerZ, 444, 0);
 						}
 					}
 				}

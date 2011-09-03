@@ -1,5 +1,6 @@
 package me.olloth.plugins.portcullis;
 
+import me.olloth.plugins.portcullis.blocks.Blocks;
 import me.olloth.plugins.portcullis.generators.PortGenerator;
 import me.olloth.plugins.portcullis.listeners.Entities;
 import me.olloth.plugins.portcullis.listeners.Players;
@@ -11,6 +12,7 @@ import org.bukkit.event.Event.Type;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.getspout.spoutapi.SpoutManager;
 
 public class Portcullis extends JavaPlugin {
 	
@@ -19,6 +21,7 @@ public class Portcullis extends JavaPlugin {
 	Entities entities;
 	Weathers weathers;
 	Players players;
+	Blocks blocks;
 	
     public void onDisable() {
         System.out.println(this + " is now disabled!");
@@ -30,6 +33,11 @@ public class Portcullis extends JavaPlugin {
     	entities = new Entities(this);
     	weathers = new Weathers(this);
     	players = new Players(this);
+    	
+    	SpoutManager.getFileManager().addToPreLoginCache(this, "http://dl.dropbox.com/u/15813472/quartz.png");
+    	SpoutManager.getFileManager().addToPreLoginCache(this, "http://dl.dropbox.com/u/15813472/blueQuartz.png");
+    	
+    	blocks = new Blocks(this);
     	
     	pm.registerEvent(Type.CUSTOM_EVENT,spouts,Priority.Low,this);
     	pm.registerEvent(Type.ENTITY_DAMAGE,entities,Priority.Low,this);
