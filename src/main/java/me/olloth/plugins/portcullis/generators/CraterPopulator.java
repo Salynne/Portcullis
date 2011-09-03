@@ -9,37 +9,45 @@ import org.bukkit.util.BlockVector;
 import org.bukkit.util.Vector;
 
 public class CraterPopulator extends BlockPopulator {
-    private static final int CRATER_CHANCE = 60; // Out of 100
-    private static final int MIN_CRATER_SIZE = 3;
-    private static final int SMALL_CRATER_SIZE = 10;
-    private static final int BIG_CRATER_SIZE = 26;
-    private static final int BIG_CRATER_CHANCE = 10; // Out of 100
+	private int overallChance = 60;
+	private int biggerChance = 10;
+	private int minimumSize = 3;
+	private int smallMax = 10;
+	private int largeMax = 30;
 
-    public void populate(World world, Random random, Chunk source) {
-        if (random.nextInt(100) <= CRATER_CHANCE) {
-            int centerX = (source.getX() << 4) + random.nextInt(16);
-            int centerZ = (source.getZ() << 4) + random.nextInt(16);
-            int centerY = world.getHighestBlockYAt(centerX, centerZ);
-            Vector center = new BlockVector(centerX, centerY, centerZ);
-            int radius = 0;
+	public void populate(World world, Random random, Chunk chunk) {
+		if (random.nextInt(100) <= overallChance) {
+			int centerX = (chunk.getX() << 4) + random.nextInt(16);
+			int centerZ = (chunk.getZ() << 4) + random.nextInt(16);
+			int centerY = world.getHighestBlockYAt(centerX, centerZ);
+			Vector center = new BlockVector(centerX, centerY, centerZ);
+			int r = 0;
 
-            if (random.nextInt(100) <= BIG_CRATER_CHANCE) {
-                radius = random.nextInt(BIG_CRATER_SIZE - MIN_CRATER_SIZE + 1) + MIN_CRATER_SIZE;
-            } else {
-                radius = random.nextInt(SMALL_CRATER_SIZE - MIN_CRATER_SIZE + 1) + MIN_CRATER_SIZE;
-            }
+			if (random.nextInt(100) <= biggerChance) {
+				r = random.nextInt(largeMax - minimumSize + 1) + minimumSize;
+			} else {
+				r = random.nextInt(smallMax - minimumSize + 1) + minimumSize;
+			}
 
-            for (int x = -radius; x <= radius; x++) {
-                for (int y = -radius/2; y <= radius; y++) {
-                    for (int z = -radius; z <= radius; z++) {
-                        Vector position = center.clone().add(new Vector(x, y, z));
+			for (int x = -r; x <= r; x++) {
+				for (int z = -r; z <= r; z++) {
+					for (int y = -10; y <= 30; y++) {
+						Vector xyzPos = center.clone().add(new Vector(x, y, z));
+						Vector xzPos = center.clone().add(new Vector(x, 0, z));
+						double distance = r + 0.5 - Math.abs(y);
 
-                        if (center.distance(position) <= radius + 0.5) {
-                            world.getBlockAt(position.toLocation(world)).setType(Material.AIR);
-                        }
-                    }
-                }
-            }
-        }
-    }
+						if (center.distance(xyzPos) <= distance && y < 0) {
+							world.getBlockAt(xyzPos.toLocation(world)).setType(Material.AIR);
+						}
+						else if(center.distance(xzPos) <= r + 0.5 && y >= 0) {
+							world.getBlockAt(xyzPos.toLocation(world)).setType(Material.AIR);
+						}
+						
+					}
+				}
+
+			}
+
+		}
+	}
 }
