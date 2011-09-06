@@ -27,9 +27,8 @@ public class Spouts extends SpoutListener {
 
 		player.resetTexturePack();
 		player.setCanFly(true);
-//		player.setTexturePack("http://dl.dropbox.com/u/40267690/Archive.zip");
+		player.setTexturePack("http://dl.dropbox.com/u/40267690/Archive.zip");
 		player.setGravityMultiplier(0.167);
-		player.setWalkingMultiplier(2);
 
 		sm.setCloudsVisible(player, false);
 		sm.setSunVisible(player, false);

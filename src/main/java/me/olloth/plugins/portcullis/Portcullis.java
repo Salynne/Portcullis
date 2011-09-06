@@ -34,8 +34,9 @@ public class Portcullis extends JavaPlugin {
     	weathers = new Weathers(this);
     	players = new Players(this);
     	
-    	SpoutManager.getFileManager().addToPreLoginCache(this, "http://dl.dropbox.com/u/15813472/quartz.png");
-    	SpoutManager.getFileManager().addToPreLoginCache(this, "http://dl.dropbox.com/u/15813472/blueQuartz.png");
+    	SpoutManager.getFileManager().addToPreLoginCache(this, "http://dl.dropbox.com/u/15813472/test.png");
+    	SpoutManager.getFileManager().addToPreLoginCache(this, "http://dl.dropbox.com/u/40267690/quartz.png");
+    	SpoutManager.getFileManager().addToPreLoginCache(this, "http://dl.dropbox.com/u/40267690/blueQuartz.png");
     	
     	blocks = new Blocks(this);
     	

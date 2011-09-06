@@ -22,7 +22,7 @@ public class PortGenerator extends ChunkGenerator {
 
 		SimplexOctaveGenerator gen = new SimplexOctaveGenerator(world, 8);
 
-		gen.setScale(1.0D / 64.0D);
+		gen.setScale(1.0D / 256.0D);
 
 		for (int x = 0; x < 16; x++) {
 			for (int z = 0; z < 16; z++) {

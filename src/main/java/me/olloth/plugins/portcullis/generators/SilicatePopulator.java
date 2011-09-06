@@ -28,17 +28,18 @@ public class SilicatePopulator extends BlockPopulator {
 				int centerY = world.getHighestBlockYAt(centerX, centerZ) - 1;
 				Block sourceBlock = world.getBlockAt(centerX, centerY, centerZ);
 
-				if (sourceBlock.getType() == Material.STONE) {
+				if (sourceBlock.getType() == Material.COBBLESTONE) {
 					height = 2 + random.nextInt(3);
-					sourceBlock.setType(Material.GLASS);
 					
 					for (int y = 1; y <= height; y++) {
 						if (random.nextInt(4) == 3) {
-							world.getBlockAt(centerX, centerY + y, centerZ).setType(Material.GLASS);
-							SpoutManager.getItemManager().overrideBlock(centerX, centerY + y, centerZ, 445, 0);
+							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
+							sourceBlock.setType(Material.GLOWSTONE);
+							SpoutManager.getItemManager().overrideBlock(sourceBlock, 445, 0);
 						} else {
-							world.getBlockAt(centerX, centerY + y, centerZ).setType(Material.GLASS);
-							SpoutManager.getItemManager().overrideBlock(centerX, centerY + y, centerZ, 444, 0);
+							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
+							sourceBlock.setType(Material.GLASS);
+							SpoutManager.getItemManager().overrideBlock(sourceBlock, 444, 0);
 						}
 					}
 				}

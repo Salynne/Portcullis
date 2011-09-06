@@ -9,11 +9,11 @@ import org.bukkit.util.BlockVector;
 import org.bukkit.util.Vector;
 
 public class CraterPopulator extends BlockPopulator {
-	private int overallChance = 60;
-	private int biggerChance = 10;
+	private int overallChance = 50;
+	private int biggerChance = 15;
 	private int minimumSize = 3;
 	private int smallMax = 10;
-	private int largeMax = 30;
+	private int largeMax = 32;
 
 	public void populate(World world, Random random, Chunk chunk) {
 		if (random.nextInt(100) <= overallChance) {
@@ -31,7 +31,7 @@ public class CraterPopulator extends BlockPopulator {
 
 			for (int x = -r; x <= r; x++) {
 				for (int z = -r; z <= r; z++) {
-					for (int y = -10; y <= 30; y++) {
+					for (int y = -12; y <= 30; y++) {
 						Vector xyzPos = center.clone().add(new Vector(x, y, z));
 						Vector xzPos = center.clone().add(new Vector(x, 0, z));
 						double distance = r + 0.5 - Math.abs(y);
