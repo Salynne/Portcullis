@@ -35,11 +35,11 @@ public class SilicatePopulator extends BlockPopulator {
 						if (random.nextInt(4) == 3) {
 							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
 							sourceBlock.setType(Material.GLOWSTONE);
-							SpoutManager.getItemManager().overrideBlock(sourceBlock, 445, 0);
+//							SpoutManager.getItemManager().overrideBlock(sourceBlock, 445, 0);
 						} else {
 							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
 							sourceBlock.setType(Material.GLASS);
-							SpoutManager.getItemManager().overrideBlock(sourceBlock, 444, 0);
+//							SpoutManager.getItemManager().overrideBlock(sourceBlock, 444, 0);
 						}
 					}
 				}
