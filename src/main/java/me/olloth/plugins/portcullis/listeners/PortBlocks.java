@@ -33,11 +33,14 @@ public class PortBlocks extends BlockListener {
 		SpoutBlock block = im.getSpoutBlock(event.getBlock());
 		
 		if(block.isCustomBlock()) {
-			if(block.getCustomBlock() instanceof Quartz) {
-				block.getWorld().dropItem(block.getLocation(), im.getCustomItemStack(block.getCustomBlock(), 1));
+			int id = block.getCustomBlockId();
+			System.out.println(id);
+			System.out.println(quartz.getCustomID() + " " + blueQuartz.getCustomID());
+			if(id == quartz.getCustomID()) {
+				block.getWorld().dropItem(block.getLocation(), im.getCustomItemStack(quartz, 1));
 			}
-			else if (block.getCustomBlock() instanceof BlueQuartz) {
-				block.getWorld().dropItem(block.getLocation(), im.getCustomItemStack(block.getCustomBlock(), 1));
+			else if (id == blueQuartz.getCustomID()) {
+				block.getWorld().dropItem(block.getLocation(), im.getCustomItemStack(blueQuartz, 1));
 			}
 		}
 	}
