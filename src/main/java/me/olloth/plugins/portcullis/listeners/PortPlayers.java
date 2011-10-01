@@ -7,10 +7,10 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
-public class Players extends PlayerListener{
+public class PortPlayers extends PlayerListener{
 	Portcullis plugin;
 	
-	public Players(Portcullis plugin) {
+	public PortPlayers(Portcullis plugin) {
 		this.plugin = plugin;
 	}
 	

@@ -6,10 +6,10 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityListener;
 
-public class Entities extends EntityListener {
+public class PortEntities extends EntityListener {
 	Portcullis plugin;
 	
-	public Entities(Portcullis plugin) {
+	public PortEntities(Portcullis plugin) {
 		this.plugin = plugin;
 	}
 	

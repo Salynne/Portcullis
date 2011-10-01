@@ -2,6 +2,8 @@ package me.olloth.plugins.portcullis.generators;
 
 import java.util.Random;
 
+import me.olloth.plugins.portcullis.listeners.PortBlocks;
+
 import org.bukkit.Chunk;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -35,11 +37,11 @@ public class SilicatePopulator extends BlockPopulator {
 						if (random.nextInt(4) == 3) {
 							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
 							sourceBlock.setType(Material.GLOWSTONE);
-//							SpoutManager.getItemManager().overrideBlock(sourceBlock, 445, 0);
+							SpoutManager.getItemManager().overrideBlock(sourceBlock, PortBlocks.blueQuartz);
 						} else {
 							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
 							sourceBlock.setType(Material.GLASS);
-//							SpoutManager.getItemManager().overrideBlock(sourceBlock, 444, 0);
+							SpoutManager.getItemManager().overrideBlock(sourceBlock, PortBlocks.quartz);
 						}
 					}
 				}

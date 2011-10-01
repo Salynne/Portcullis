@@ -10,12 +10,12 @@ import org.getspout.spoutapi.player.SpoutPlayer;
 
 import me.olloth.plugins.portcullis.Portcullis;
 
-public class Spouts extends SpoutListener {
+public class PortSpout extends SpoutListener {
 
 	Portcullis plugin;
 	long count;
 
-	public Spouts(Portcullis plugin) {
+	public PortSpout(Portcullis plugin) {
 		count = 0;
 		this.plugin = plugin;
 	}
