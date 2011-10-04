@@ -4,11 +4,14 @@ import me.olloth.plugins.portcullis.Portcullis;
 import me.olloth.plugins.portcullis.blocks.BlueQuartz;
 import me.olloth.plugins.portcullis.blocks.Quartz;
 
+import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockListener;
+import org.bukkit.inventory.ItemStack;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.block.SpoutBlock;
 import org.getspout.spoutapi.inventory.ItemManager;
+import org.getspout.spoutapi.material.CustomBlock;
 
 public class PortBlocks extends BlockListener {
 	
@@ -34,13 +37,14 @@ public class PortBlocks extends BlockListener {
 		
 		if(block.isCustomBlock()) {
 			int id = block.getCustomBlockId();
-			System.out.println(id);
-			System.out.println(quartz.getCustomID() + " " + blueQuartz.getCustomID());
-			if(id == quartz.getCustomID()) {
-				block.getWorld().dropItem(block.getLocation(), im.getCustomItemStack(quartz, 1));
+			CustomBlock cb = block.getCustomBlock();
+			ItemStack is = im.getCustomItemStack(cb, 1);
+			System.out.println(im.getCustomItemName(Material.FLINT, (short) cb.getCustomId()));
+			if(id == quartz.getCustomId()) {
+				block.getWorld().dropItem(block.getLocation(), is);
 			}
-			else if (id == blueQuartz.getCustomID()) {
-				block.getWorld().dropItem(block.getLocation(), im.getCustomItemStack(blueQuartz, 1));
+			else if (id == blueQuartz.getCustomId()) {
+				block.getWorld().dropItem(block.getLocation(), is);
 			}
 		}
 	}
