@@ -7,9 +7,9 @@ import org.getspout.spoutapi.material.block.GenericCustomBlock;
 
 public class BlueQuartz extends GenericCustomBlock {
 
-	public BlueQuartz(Portcullis plugin) {
-		super(plugin, "Blue Quartz", true);
-		this.setBlockDesign(new QuartzBlockDesign(plugin, "http://dl.dropbox.com/u/40267690/blueQuartz.png", 0, 16));
+	public BlueQuartz() {
+		super(Portcullis.instance, "Blue Quartz", false);
+		this.setBlockDesign(new QuartzBlockDesign(4));
 	}
 
 }

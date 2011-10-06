@@ -1,8 +1,7 @@
 package me.olloth.plugins.portcullis.listeners;
 
 import me.olloth.plugins.portcullis.Portcullis;
-import me.olloth.plugins.portcullis.blocks.BlueQuartz;
-import me.olloth.plugins.portcullis.blocks.Quartz;
+import me.olloth.plugins.portcullis.blocks.Blocks;
 
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -12,21 +11,18 @@ import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.block.SpoutBlock;
 import org.getspout.spoutapi.inventory.ItemManager;
 import org.getspout.spoutapi.material.CustomBlock;
+import org.getspout.spoutapi.material.item.GenericCustomItem;
 
 public class PortBlocks extends BlockListener {
 	
 	Portcullis plugin;
 	ItemManager im;
 	
-	public static Quartz quartz;
-	public static BlueQuartz blueQuartz;
+	public static GenericCustomItem testItem;
 	
 	public PortBlocks(Portcullis plugin) {
 		this.plugin = plugin;
 		im = SpoutManager.getItemManager();
-		
-		quartz = new Quartz(plugin);
-		blueQuartz = new BlueQuartz(plugin);
 	}
 	
 	@Override
@@ -40,10 +36,10 @@ public class PortBlocks extends BlockListener {
 			CustomBlock cb = block.getCustomBlock();
 			ItemStack is = im.getCustomItemStack(cb, 1);
 			System.out.println(im.getCustomItemName(Material.FLINT, (short) cb.getCustomId()));
-			if(id == quartz.getCustomId()) {
+			if(id == Blocks.quartz.getCustomId()) {
 				block.getWorld().dropItem(block.getLocation(), is);
 			}
-			else if (id == blueQuartz.getCustomId()) {
+			else if (id == Blocks.blueQuartz.getCustomId()) {
 				block.getWorld().dropItem(block.getLocation(), is);
 			}
 		}

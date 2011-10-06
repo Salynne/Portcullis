@@ -24,6 +24,7 @@ public class PortPlayers extends PlayerListener{
 		else {
 			player.setJumpingMultiplier(1);
 		}
+		player.getWorld().dropItem(player.getLocation(), SpoutManager.getItemManager().getCustomItemStack(PortBlocks.testItem, 1));
 	}
 	
 	@Override
