@@ -36,6 +36,7 @@ public class PortBlocks extends BlockListener {
 			CustomBlock cb = block.getCustomBlock();
 			ItemStack is = im.getCustomItemStack(cb, 1);
 			System.out.println(im.getCustomItemName(Material.FLINT, (short) cb.getCustomId()));
+			
 			if(id == Blocks.quartz.getCustomId()) {
 				block.getWorld().dropItem(block.getLocation(), is);
 			}
