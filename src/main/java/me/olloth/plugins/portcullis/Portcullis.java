@@ -60,7 +60,6 @@ public class Portcullis extends JavaPlugin {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		System.out.println("Command!");
 		
 		return super.onCommand(sender, command, label, args);
 	}
