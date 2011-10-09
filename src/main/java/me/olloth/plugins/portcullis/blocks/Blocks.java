@@ -10,7 +10,7 @@ public class Blocks {
 	public static final int textureSize = 256;
 	public static final int spriteSize = 16;
 	public static final String textureUrl = "http://dl.dropbox.com/u/40267690/mooncraft.png";
-	public static final Texture texture = new Texture(textureUrl, textureSize, textureSize, spriteSize);
+	public static final Texture texture = new Texture(Portcullis.instance, textureUrl, textureSize, textureSize, spriteSize);
 	
 	public static HighlandDust highlandDust;
 	public static Mare mare;
