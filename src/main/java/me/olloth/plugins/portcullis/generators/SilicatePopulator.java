@@ -30,7 +30,7 @@ public class SilicatePopulator extends BlockPopulator {
 				int centerY = world.getHighestBlockYAt(centerX, centerZ) - 1;
 				Block sourceBlock = world.getBlockAt(centerX, centerY, centerZ);
 
-				if (sourceBlock.getType() == Material.COBBLESTONE) {
+				if (sourceBlock.getType() == Material.STONE) {
 					height = 2 + random.nextInt(3);
 					
 					for (int y = 1; y <= height; y++) {
