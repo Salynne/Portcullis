@@ -4,7 +4,6 @@ import me.olloth.plugins.portcullis.blocks.Blocks;
 import me.olloth.plugins.portcullis.generators.PortGenerator;
 import me.olloth.plugins.portcullis.listeners.PortEntities;
 import me.olloth.plugins.portcullis.listeners.PortPlayers;
-import me.olloth.plugins.portcullis.listeners.PortBlocks;
 import me.olloth.plugins.portcullis.listeners.PortSpout;
 import me.olloth.plugins.portcullis.listeners.PortWeather;
 
@@ -24,7 +23,6 @@ public class Portcullis extends JavaPlugin {
 	PortEntities entities;
 	PortWeather weathers;
 	PortPlayers players;
-	PortBlocks portBlocks;
 	Blocks blocks;
 
 	public void onDisable() {
@@ -41,13 +39,11 @@ public class Portcullis extends JavaPlugin {
 		entities = new PortEntities(this);
 		weathers = new PortWeather(this);
 		players = new PortPlayers(this);
-		portBlocks = new PortBlocks(this);
 
 		pm.registerEvent(Type.CUSTOM_EVENT, spouts, Priority.Low, this);
 		pm.registerEvent(Type.ENTITY_DAMAGE, entities, Priority.Low, this);
 		pm.registerEvent(Type.WEATHER_CHANGE, weathers, Priority.Low, this);
 		pm.registerEvent(Type.PLAYER_TOGGLE_SNEAK, players, Priority.Low, this);
-		pm.registerEvent(Type.BLOCK_BREAK, portBlocks, Priority.Low, this);
 		pm.registerEvent(Type.PLAYER_PICKUP_ITEM, players, Priority.Low, this);
 
 		System.out.println(this + " is now enabled!");

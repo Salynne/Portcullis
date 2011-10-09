@@ -18,11 +18,10 @@ public class PortPlayers extends PlayerListener{
 	public void onPlayerToggleSneak(PlayerToggleSneakEvent event) {
 		SpoutPlayer player = SpoutManager.getPlayer(event.getPlayer());
 		if(event.isSneaking()) {
-			player.setJumpingMultiplier(0.3);
+			player.setJumpingMultiplier(0.5);
 		}
 		else {
 			player.setJumpingMultiplier(1);
 		}
-		player.getWorld().dropItem(player.getLocation(), SpoutManager.getItemManager().getCustomItemStack(PortBlocks.testItem, 1));
 	}
 }
