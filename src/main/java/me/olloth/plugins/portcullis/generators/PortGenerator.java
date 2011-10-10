@@ -9,14 +9,11 @@ import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.util.noise.SimplexOctaveGenerator;
-import org.getspout.spoutapi.SpoutManager;
-import org.getspout.spoutapi.inventory.ItemManager;
 
 public class PortGenerator extends ChunkGenerator {
-	ItemManager im;
 
 	public PortGenerator() {
-		im = SpoutManager.getItemManager();
+
 	}
 
 	@Override
