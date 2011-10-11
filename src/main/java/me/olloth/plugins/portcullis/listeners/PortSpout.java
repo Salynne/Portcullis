@@ -40,7 +40,7 @@ public class PortSpout extends SpoutListener {
 	@Override
 	public void onServerTick(ServerTickEvent event) {
 		if (count % 20 == 0) {
-			plugin.getServer().getWorld("world").setTime(12000);
+			plugin.getServer().getWorld("world").setTime(18000);
 		}
 		count++;
 	}
