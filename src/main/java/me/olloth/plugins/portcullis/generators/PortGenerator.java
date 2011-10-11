@@ -4,16 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import me.olloth.plugins.portcullis.blocks.Blocks;
+
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.util.noise.SimplexOctaveGenerator;
+import org.getspout.spoutapi.SpoutManager;
+import org.getspout.spoutapi.inventory.MaterialManager;
 
 public class PortGenerator extends ChunkGenerator {
+	
+	MaterialManager mm;
 
 	public PortGenerator() {
-
+		mm = SpoutManager.getMaterialManager();
 	}
 
 	@Override
@@ -34,10 +40,13 @@ public class PortGenerator extends ChunkGenerator {
 						block = (byte) Material.BEDROCK.getId();
 					} else if (y < 64 + noise && y > 58 + noise) {
 						block = (byte) Material.IRON_BLOCK.getId();
+//						mm.overrideBlock(world, x, y, z, Blocks.highlandDust);
 					} else if (y <= 58 + noise && y > 50 + noise) {
 						block = (byte) Material.STONE.getId();
+//						mm.overrideBlock(world, x, y, z, Blocks.mare);
 					} else if (y <= 50 + noise) {
 						block = (byte) Material.COBBLESTONE.getId();
+//						mm.overrideBlock(world, x, y, z, Blocks.moonrock);
 					}
 					chunk[xyzToByte(x, y, z)] = block;
 				}
