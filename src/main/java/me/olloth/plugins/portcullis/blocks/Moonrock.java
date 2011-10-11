@@ -42,19 +42,19 @@ public class Moonrock extends GenericCubeCustomBlock {
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z, BlockFace face) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean onBlockInteract(World world, int x, int y, int z, SpoutPlayer player) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override

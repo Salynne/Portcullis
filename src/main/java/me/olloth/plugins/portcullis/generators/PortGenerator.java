@@ -39,14 +39,14 @@ public class PortGenerator extends ChunkGenerator {
 					if (y == 0) {
 						block = (byte) Material.BEDROCK.getId();
 					} else if (y < 64 + noise && y > 58 + noise) {
-						block = (byte) Material.IRON_BLOCK.getId();
-//						mm.overrideBlock(world, x, y, z, Blocks.highlandDust);
+						block = (byte) Material.STONE.getId();
+						mm.overrideBlock(world, x, y, z, Blocks.highlandDust);
 					} else if (y <= 58 + noise && y > 50 + noise) {
 						block = (byte) Material.STONE.getId();
-//						mm.overrideBlock(world, x, y, z, Blocks.mare);
+						mm.overrideBlock(world, x, y, z, Blocks.mare);
 					} else if (y <= 50 + noise) {
-						block = (byte) Material.COBBLESTONE.getId();
-//						mm.overrideBlock(world, x, y, z, Blocks.moonrock);
+						block = (byte) Material.STONE.getId();
+						mm.overrideBlock(world, x, y, z, Blocks.moonrock);
 					}
 					chunk[xyzToByte(x, y, z)] = block;
 				}
@@ -59,7 +59,7 @@ public class PortGenerator extends ChunkGenerator {
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		List<BlockPopulator> list = new ArrayList<BlockPopulator>();
 		list.add(new CraterPopulator());
-		list.add(new SilicatePopulator());
+//		list.add(new SilicatePopulator());
 		return list;
 	}
 
