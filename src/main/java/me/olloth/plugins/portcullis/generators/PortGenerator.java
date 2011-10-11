@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import me.olloth.plugins.portcullis.blocks.Blocks;
+//import me.olloth.plugins.portcullis.blocks.Blocks;
 
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -38,15 +38,16 @@ public class PortGenerator extends ChunkGenerator {
 					double noise = gen.noise(x + chunkX * 16, z + chunkZ * 16, 0.5, 0.5, true) * 12;
 					if (y == 0) {
 						block = (byte) Material.BEDROCK.getId();
+					
 					} else if (y < 64 + noise && y > 58 + noise) {
-						block = (byte) Material.STONE.getId();
-						mm.overrideBlock(world, x + chunkX * 16, y , z + chunkZ * 16, Blocks.highlandDust);
+						block = (byte) Material.IRON_BLOCK.getId();
+//						mm.overrideBlock(world, x + chunkX * 16, y , z + chunkZ * 16, Blocks.highlandDust);
 					} else if (y <= 58 + noise && y > 50 + noise) {
 						block = (byte) Material.STONE.getId();
-						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.mare);
+//						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.mare);
 					} else if (y <= 50 + noise) {
-						block = (byte) Material.STONE.getId();
-						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.moonrock);
+						block = (byte) Material.COBBLESTONE.getId();
+//						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.moonrock);
 					}
 					chunk[xyzToByte(x, y, z)] = block;
 				}
@@ -58,8 +59,9 @@ public class PortGenerator extends ChunkGenerator {
 	@Override
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		List<BlockPopulator> list = new ArrayList<BlockPopulator>();
+//		list.add(new SlowTerrainPopulator());
 		list.add(new CraterPopulator());
-//		list.add(new SilicatePopulator());
+		list.add(new SilicatePopulator());
 		return list;
 	}
 

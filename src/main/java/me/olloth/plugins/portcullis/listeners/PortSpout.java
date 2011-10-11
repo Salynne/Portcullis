@@ -27,7 +27,7 @@ public class PortSpout extends SpoutListener {
 
 		player.resetTexturePack();
 		player.setCanFly(true);
-//		player.setTexturePack("http://dl.dropbox.com/u/40267690/Archive.zip");
+		player.setTexturePack("http://dl.dropbox.com/u/40267690/Archive.zip");
 		player.setGravityMultiplier(0.167);
 
 		sm.setCloudsVisible(player, false);
@@ -39,8 +39,8 @@ public class PortSpout extends SpoutListener {
 
 	@Override
 	public void onServerTick(ServerTickEvent event) {
-		if (count % 20 == 0 && plugin.getServer().getWorld("world").getTime() >= 23000) {
-			plugin.getServer().getWorld("world").setTime(13000);
+		if (count % 20 == 0) {
+			plugin.getServer().getWorld("world").setTime(12000);
 		}
 		count++;
 	}

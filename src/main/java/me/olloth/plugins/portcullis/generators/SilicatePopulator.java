@@ -7,11 +7,19 @@ import me.olloth.plugins.portcullis.blocks.Blocks;
 import org.bukkit.Chunk;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.block.Block;
+//import org.bukkit.block.Block;
 import org.bukkit.generator.BlockPopulator;
 import org.getspout.spoutapi.SpoutManager;
+import org.getspout.spoutapi.block.SpoutBlock;
+import org.getspout.spoutapi.inventory.MaterialManager;
 
 public class SilicatePopulator extends BlockPopulator {
+	
+	MaterialManager mm;
+	
+	public SilicatePopulator() {
+		mm = SpoutManager.getMaterialManager();
+	}
 
 	@Override
 	public void populate(World world, Random random, Chunk chunk) {
@@ -28,20 +36,20 @@ public class SilicatePopulator extends BlockPopulator {
 			centerZ = (chunk.getZ() << 4) + random.nextInt(16);
 			if (random.nextInt(100) <= chance) {
 				int centerY = world.getHighestBlockYAt(centerX, centerZ) - 1;
-				Block sourceBlock = world.getBlockAt(centerX, centerY, centerZ);
+				SpoutBlock sourceBlock = mm.getSpoutBlock(world.getBlockAt(centerX, centerY, centerZ));
 
-				if (sourceBlock.getType() == Material.STONE) {
+				if (sourceBlock.getType() == Material.COBBLESTONE) {
 					height = 2 + random.nextInt(3);
 					
 					for (int y = 1; y <= height; y++) {
 						if (random.nextInt(4) == 3) {
-							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
-							sourceBlock.setType(Material.GLOWSTONE);
-							SpoutManager.getMaterialManager().overrideBlock(sourceBlock, Blocks.blueQuartz);
+							sourceBlock = mm.getSpoutBlock(world.getBlockAt(centerX, centerY + y, centerZ));
+//							sourceBlock.setType(Material.GLOWSTONE);
+							mm.overrideBlock(sourceBlock, Blocks.blueQuartz);
 						} else {
-							sourceBlock = world.getBlockAt(centerX, centerY + y, centerZ);
-							sourceBlock.setType(Material.GLASS);
-							SpoutManager.getMaterialManager().overrideBlock(sourceBlock, Blocks.quartz);
+							sourceBlock = mm.getSpoutBlock(world.getBlockAt(centerX, centerY + y, centerZ));
+//							sourceBlock.setType(Material.GLASS);
+							mm.overrideBlock(sourceBlock, Blocks.quartz);
 						}
 					}
 				}
