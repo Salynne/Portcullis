@@ -41,18 +41,6 @@ public class HighlandDust extends GenericCubeCustomBlock {
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z, BlockFace face) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
 	public boolean onBlockInteract(World world, int x, int y, int z, SpoutPlayer player) {
 		// TODO Auto-generated method stub
 		return true;
@@ -77,7 +65,7 @@ public class HighlandDust extends GenericCubeCustomBlock {
 	}
 
 	@Override
-	public boolean isIndirectlyProdivingPowerTo(World world, int x, int y, int z, BlockFace face) {
+	public boolean isIndirectlyProvidingPowerTo(World world, int x, int y, int z, BlockFace face) {
 		// TODO Auto-generated method stub
 		return false;
 	}

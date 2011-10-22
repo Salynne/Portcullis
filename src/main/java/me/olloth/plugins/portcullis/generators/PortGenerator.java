@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-//import me.olloth.plugins.portcullis.blocks.Blocks;
+import me.olloth.plugins.portcullis.blocks.Blocks;
 
 import org.bukkit.Material;
 import org.bukkit.World;
