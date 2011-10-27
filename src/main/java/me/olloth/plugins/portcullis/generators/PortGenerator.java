@@ -41,13 +41,13 @@ public class PortGenerator extends ChunkGenerator {
 					
 					} else if (y < 64 + noise && y > 58 + noise) {
 						block = (byte) Material.IRON_BLOCK.getId();
-//						mm.overrideBlock(world, x + chunkX * 16, y , z + chunkZ * 16, Blocks.highlandDust);
+						mm.overrideBlock(world, x + chunkX * 16, y , z + chunkZ * 16, Blocks.highlandDust);
 					} else if (y <= 58 + noise && y > 50 + noise) {
 						block = (byte) Material.STONE.getId();
-//						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.mare);
+						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.mare);
 					} else if (y <= 50 + noise) {
 						block = (byte) Material.COBBLESTONE.getId();
-//						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.moonrock);
+						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.moonrock);
 					}
 					chunk[xyzToByte(x, y, z)] = block;
 				}
