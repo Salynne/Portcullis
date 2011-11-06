@@ -3,12 +3,10 @@ package me.olloth.plugins.portcullis.blocks;
 import me.olloth.plugins.portcullis.Portcullis;
 import me.olloth.plugins.portcullis.blocks.designs.QuartzBlockDesign;
 
-import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
-import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.material.block.GenericCustomBlock;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
@@ -34,7 +32,6 @@ public class BlueQuartz extends GenericCustomBlock {
 
 	@Override
 	public void onBlockDestroyed(World world, int x, int y, int z) {
-		world.dropItem(new Location(world, x, y, z), SpoutManager.getMaterialManager().getCustomItemStack(Blocks.moonrock, 1));
 	}
 
 	@Override

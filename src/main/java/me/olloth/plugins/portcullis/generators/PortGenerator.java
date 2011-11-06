@@ -15,7 +15,7 @@ import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.inventory.MaterialManager;
 
 public class PortGenerator extends ChunkGenerator {
-	
+
 	MaterialManager mm;
 
 	public PortGenerator() {
@@ -38,15 +38,17 @@ public class PortGenerator extends ChunkGenerator {
 					double noise = gen.noise(x + chunkX * 16, z + chunkZ * 16, 0.5, 0.5, true) * 12;
 					if (y == 0) {
 						block = (byte) Material.BEDROCK.getId();
-					
+
 					} else if (y < 64 + noise && y > 58 + noise) {
-						block = (byte) Material.IRON_BLOCK.getId();
-						mm.overrideBlock(world, x + chunkX * 16, y , z + chunkZ * 16, Blocks.highlandDust);
+						// block = (byte) Material.IRON_BLOCK.getId();
+						block = (byte) Material.STONE.getId();
+						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.highlandDust);
 					} else if (y <= 58 + noise && y > 50 + noise) {
 						block = (byte) Material.STONE.getId();
 						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.mare);
 					} else if (y <= 50 + noise) {
-						block = (byte) Material.COBBLESTONE.getId();
+						// block = (byte) Material.COBBLESTONE.getId();
+						block = (byte) Material.STONE.getId();
 						mm.overrideBlock(world, x + chunkX * 16, y, z + chunkZ * 16, Blocks.moonrock);
 					}
 					chunk[xyzToByte(x, y, z)] = block;
@@ -60,8 +62,8 @@ public class PortGenerator extends ChunkGenerator {
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		List<BlockPopulator> list = new ArrayList<BlockPopulator>();
 //		list.add(new SlowTerrainPopulator());
-		list.add(new CraterPopulator());
-		list.add(new SilicatePopulator());
+//		list.add(new CraterPopulator());
+//		list.add(new SilicatePopulator());
 		return list;
 	}
 
@@ -73,5 +75,4 @@ public class PortGenerator extends ChunkGenerator {
 	public int xyzToByte(int x, int y, int z) {
 		return (x * 16 + z) * 128 + y;
 	}
-
 }

@@ -4,7 +4,6 @@ import me.olloth.plugins.portcullis.Portcullis;
 
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.block.design.Texture;
-import org.getspout.spoutapi.material.MaterialData;
 
 public class Blocks {
 	

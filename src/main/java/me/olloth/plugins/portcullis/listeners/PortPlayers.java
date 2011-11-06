@@ -2,10 +2,8 @@ package me.olloth.plugins.portcullis.listeners;
 
 import me.olloth.plugins.portcullis.Portcullis;
 
-import org.bukkit.entity.Fireball;
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
-import org.bukkit.inventory.ItemStack;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
@@ -25,8 +23,5 @@ public class PortPlayers extends PlayerListener{
 		else {
 			player.setJumpingMultiplier(1);
 		}
-		
-		Fireball fireball = player.getWorld().spawn(player.getLocation(), Fireball.class);
-		fireball.setDirection(player.getLocation().getDirection());
 	}
 }
