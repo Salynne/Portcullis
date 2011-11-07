@@ -47,6 +47,14 @@ public class Portcullis extends JavaPlugin {
 		pm.registerEvent(Type.PLAYER_PICKUP_ITEM, players, Priority.Low, this);
 
 		System.out.println(this + " is now enabled!");
+		
+		System.out.println("Sleeping for 20s for profiler attachment");
+		
+		try {
+			Thread.sleep(20000);
+		}
+		catch (Exception ignore) {}
+		
 	}
 
 	@Override
