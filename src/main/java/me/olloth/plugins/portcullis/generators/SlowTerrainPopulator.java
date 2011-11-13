@@ -27,23 +27,31 @@ public class SlowTerrainPopulator extends BlockPopulator {
 		int chunkZ = source.getZ();
 
 		gen.setScale(1.0D / 256.0D);
+		
+		short[] blockIds = new short[16*16*128];
 
 		for (int x = 0; x < 16; x++) {
 			for (int z = 0; z < 16; z++) {
 				for (int y = 0; y < 128; y++) {
 					double noise = gen.noise(x + chunkX * 16, z + chunkZ * 16, 0.5, 0.5, true) * 12;
+					int index = ((x & 0xF) << 11) | ((z & 0xF) << 7) | (y & 0x7F);
 					if (y == 0) {
 						
 					} else if (y < 64 + noise && y > 58 + noise) {
-						mm.overrideBlock(world.getBlockAt(x, y, z), Blocks.highlandDust);
+						blockIds[index] = (short) Blocks.highlandDust.getCustomId();
+						//mm.overrideBlock(world.getBlockAt(x, y, z), Blocks.highlandDust);
 					} else if (y <= 58 + noise && y > 50 + noise) {
-						mm.overrideBlock(world.getBlockAt(x, y, z), Blocks.mare);
+						blockIds[index] = (short) Blocks.mare.getCustomId();
+						//mm.overrideBlock(world.getBlockAt(x, y, z), Blocks.mare);
 					} else if (y <= 50 + noise) {
-						mm.overrideBlock(world.getBlockAt(x, y, z), Blocks.moonrock);
+						blockIds[index] = (short) Blocks.moonrock.getCustomId();
+						//mm.overrideBlock(world.getBlockAt(x, y, z), Blocks.moonrock);
 					}
 				}
 			}
 		}
+		
+		SpoutManager.getChunkDataManager().setCustomBlockIds(world, chunkX, chunkZ, blockIds);
 	}
 
 }

@@ -13,7 +13,7 @@ import org.getspout.spoutapi.player.SpoutPlayer;
 public class Mare extends GenericCubeCustomBlock {
 
 	public Mare() {
-		super(Portcullis.instance, "Mare", true, new CubeBlockDesign(1), 0);
+		super(Portcullis.instance, "Mare", true, new CubeBlockDesign(1));
 	}
 
 	@Override

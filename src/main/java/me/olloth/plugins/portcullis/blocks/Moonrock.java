@@ -12,7 +12,7 @@ import me.olloth.plugins.portcullis.blocks.designs.CubeBlockDesign;
 
 public class Moonrock extends GenericCubeCustomBlock {
 	public Moonrock() {
-		super(Portcullis.instance, "Moonrock", true, new CubeBlockDesign(2), 0);
+		super(Portcullis.instance, "Moonrock", true, new CubeBlockDesign(2));
 	}
 
 	@Override

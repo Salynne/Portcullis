@@ -13,7 +13,7 @@ import org.getspout.spoutapi.player.SpoutPlayer;
 public class HighlandDust extends GenericCubeCustomBlock {
 
 	public HighlandDust() {
-		super(Portcullis.instance, "Highland Dust", true, new CubeBlockDesign(0), 0);
+		super(Portcullis.instance, "Highland Dust", true, new CubeBlockDesign(0));
 	}
 
 	@Override
