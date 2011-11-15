@@ -14,6 +14,8 @@ public class Mare extends GenericCubeCustomBlock {
 
 	public Mare() {
 		super(Portcullis.instance, "Mare", true, new CubeBlockDesign(1));
+		setHardness(0.6F);
+		setLightLevel(5);
 	}
 
 	@Override
@@ -68,5 +70,11 @@ public class Mare extends GenericCubeCustomBlock {
 	public boolean isIndirectlyProvidingPowerTo(World world, int x, int y, int z, BlockFace face) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void onBlockDestroyed(World world, int x, int y, int z, LivingEntity living) {
+		// TODO Auto-generated method stub
+		
 	}
 }

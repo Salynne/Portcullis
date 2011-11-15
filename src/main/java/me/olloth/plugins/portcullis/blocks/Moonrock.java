@@ -68,4 +68,10 @@ public class Moonrock extends GenericCubeCustomBlock {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public void onBlockDestroyed(World world, int x, int y, int z,	LivingEntity living) {
+		// TODO Auto-generated method stub
+		
+	}
 }

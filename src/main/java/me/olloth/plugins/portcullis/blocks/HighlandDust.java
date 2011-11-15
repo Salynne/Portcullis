@@ -14,6 +14,8 @@ public class HighlandDust extends GenericCubeCustomBlock {
 
 	public HighlandDust() {
 		super(Portcullis.instance, "Highland Dust", true, new CubeBlockDesign(0));
+		setHardness(0.45F);
+		setFriction(0.99F);
 	}
 
 	@Override
@@ -68,6 +70,12 @@ public class HighlandDust extends GenericCubeCustomBlock {
 	public boolean isIndirectlyProvidingPowerTo(World world, int x, int y, int z, BlockFace face) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void onBlockDestroyed(World world, int x, int y, int z, LivingEntity living) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

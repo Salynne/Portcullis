@@ -57,4 +57,10 @@ public class BlueQuartz extends GenericCustomBlock {
 		return false;
 	}
 
+	@Override
+	public void onBlockDestroyed(World world, int x, int y, int z, LivingEntity living) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
