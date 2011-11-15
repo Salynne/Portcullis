@@ -10,7 +10,6 @@ import org.bukkit.generator.BlockPopulator;
 import org.getspout.spoutapi.SpoutManager;
 import org.getspout.spoutapi.block.SpoutBlock;
 import org.getspout.spoutapi.inventory.MaterialManager;
-import org.getspout.spoutapi.material.MaterialData;
 
 public class SilicatePopulator extends BlockPopulator {
 
@@ -37,7 +36,7 @@ public class SilicatePopulator extends BlockPopulator {
 				int centerY = world.getHighestBlockYAt(centerX, centerZ) - 1;
 				SpoutBlock sourceBlock = (SpoutBlock) world.getBlockAt(centerX, centerY, centerZ);
 
-				if (sourceBlock.getTypeId() == MaterialData.cobblestone.getRawId()) {
+				if (sourceBlock.getCustomBlock().equals(Blocks.moonrock)) {
 					height = 2 + random.nextInt(3);
 
 					for (int y = 1; y <= height; y++) {

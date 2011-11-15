@@ -7,6 +7,7 @@ import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.util.BlockVector;
 import org.bukkit.util.Vector;
+import org.getspout.spoutapi.block.SpoutBlock;
 
 public class CraterPopulator extends BlockPopulator {
 	private int overallChance = 50;
@@ -35,12 +36,15 @@ public class CraterPopulator extends BlockPopulator {
 						Vector xyzPos = center.clone().add(new Vector(x, y, z));
 						Vector xzPos = center.clone().add(new Vector(x, 0, z));
 						double distance = r + 0.5 - Math.abs(y);
+						SpoutBlock block = (SpoutBlock) world.getBlockAt(xyzPos.toLocation(world));
 
 						if (center.distance(xyzPos) <= distance && y < 0) {
-							world.getBlockAt(xyzPos.toLocation(world)).setType(Material.AIR);
+							block.setType(Material.AIR);
+							block.removeCustomBlockData();
 						}
 						else if(center.distance(xzPos) <= r + 0.5 && y >= 0) {
-							world.getBlockAt(xyzPos.toLocation(world)).setType(Material.AIR);
+							block.setType(Material.AIR);
+							block.removeCustomBlockData();
 						}
 						
 					}

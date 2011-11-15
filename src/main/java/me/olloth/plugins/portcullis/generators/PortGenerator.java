@@ -62,8 +62,8 @@ public class PortGenerator extends ChunkGenerator {
 	public List<BlockPopulator> getDefaultPopulators(World world) {
 		List<BlockPopulator> list = new ArrayList<BlockPopulator>();
 //		list.add(new SlowTerrainPopulator());
-//		list.add(new CraterPopulator());
-//		list.add(new SilicatePopulator());
+		list.add(new CraterPopulator());
+		list.add(new SilicatePopulator());
 		return list;
 	}
 

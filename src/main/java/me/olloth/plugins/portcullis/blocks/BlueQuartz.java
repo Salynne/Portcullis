@@ -14,7 +14,7 @@ public class BlueQuartz extends GenericCustomBlock {
 
 	public BlueQuartz() {
 		super(Portcullis.instance, "Blue Quartz", false);
-		this.setBlockDesign(new QuartzBlockDesign(4));
+		this.setBlockDesign(new QuartzBlockDesign(4)).setHardness(0.5F);
 	}
 
 	@Override
