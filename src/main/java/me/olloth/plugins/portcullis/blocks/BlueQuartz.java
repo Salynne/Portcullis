@@ -7,6 +7,7 @@ import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.getspout.spoutapi.material.MaterialData;
 import org.getspout.spoutapi.material.block.GenericCustomBlock;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
@@ -14,7 +15,7 @@ public class BlueQuartz extends GenericCustomBlock {
 
 	public BlueQuartz() {
 		super(Portcullis.instance, "Blue Quartz", false);
-		this.setBlockDesign(new QuartzBlockDesign(4)).setHardness(0.5F);
+		this.setBlockDesign(new QuartzBlockDesign(4)).setHardness(MaterialData.wood.getHardness()).setLightLevel(MaterialData.glowstoneBlock.getLightLevel());
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.getspout.spoutapi.material.MaterialData;
 import org.getspout.spoutapi.material.block.GenericCubeCustomBlock;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
@@ -13,6 +14,7 @@ import me.olloth.plugins.portcullis.blocks.designs.CubeBlockDesign;
 public class Moonrock extends GenericCubeCustomBlock {
 	public Moonrock() {
 		super(Portcullis.instance, "Moonrock", true, new CubeBlockDesign(2));
+		this.setHardness(MaterialData.cobblestone.getHardness());
 	}
 
 	@Override

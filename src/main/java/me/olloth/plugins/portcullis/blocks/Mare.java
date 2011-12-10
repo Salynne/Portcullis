@@ -7,6 +7,7 @@ import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.getspout.spoutapi.material.MaterialData;
 import org.getspout.spoutapi.material.block.GenericCubeCustomBlock;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
@@ -14,8 +15,7 @@ public class Mare extends GenericCubeCustomBlock {
 
 	public Mare() {
 		super(Portcullis.instance, "Mare", true, new CubeBlockDesign(1));
-		setHardness(0.6F);
-		setLightLevel(5);
+		setHardness(MaterialData.stone.getHardness());
 	}
 
 	@Override

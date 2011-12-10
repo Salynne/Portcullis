@@ -7,6 +7,7 @@ import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.getspout.spoutapi.material.MaterialData;
 import org.getspout.spoutapi.material.block.GenericCubeCustomBlock;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
@@ -14,8 +15,7 @@ public class HighlandDust extends GenericCubeCustomBlock {
 
 	public HighlandDust() {
 		super(Portcullis.instance, "Highland Dust", true, new CubeBlockDesign(0));
-		setHardness(0.45F);
-		setFriction(0.99F);
+		setHardness(MaterialData.dirt.getHardness());
 	}
 
 	@Override
